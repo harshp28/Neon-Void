@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Shooter - Game Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="space-racer-retro-synthwave-pop-193769.mp3" type="audio/mp3">
+    </audio>
+    <canvas id="bgCanvas"></canvas>
+    <div class="hero" id="main-menu">
+        <div class="hero-content">
+            <h1>Welcome to Space Shooter</h1>
+            <p>A neon-style arcade shooter. Survive, shoot, and score high!</p>
+            <a href="#" class="btn" id="play-now">Play Now</a>
+            <a href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" class="btn btn-secondary">Support Me</a>
+        </div>
+    </div>
+
+    <div class="hero hidden" id="game-mode-menu">
+        <div class="hero-content">
+            <h1>Select Game Mode</h1>
+            <a href="./Normal_mode/normal.html" class="btn">Normal Mode</a>
+            <a href="./Advance_mode/advance.html" class="btn btn-secondary">Advance Mode</a>
+            <a href="index.html" class="btn back-button" id="back-button">Back</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Developed by Harsh Pawar</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
