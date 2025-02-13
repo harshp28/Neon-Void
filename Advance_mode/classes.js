@@ -4,13 +4,25 @@ class InvaderProjectile {
         this.position = position;
         this.velocity = velocity;
         this.width = 10;
+        this.color = 'yellow';
         this.height = 3;
     }
 
     draw() {
-        c.fillStyle = 'yellow';
-        c.fillRect(this.position.x, this.position.y, this.width, this.height);
+        c.save();
+        c.translate(this.position.x, this.position.y);
+        
+        c.shadowBlur = this.glowIntensity;
+        c.shadowColor = this.color;
+    
+        c.fillStyle = this.color;
+        c.fillRect(-3, 0, 2, this.height);  // Left beam
+        c.fillRect(3, 0, 2, this.height);   // Right beam
+        
+        c.restore();
     }
+    
+    
 
     update() {
         this.draw();
@@ -23,7 +35,7 @@ class Player {
     constructor(x, y, radius, color) {
         this.x = x;
         this.y = y;
-        this.radius = radius;
+        this.radius = radius*2;
         this.color = color;
         this.velocity = { x: 0, y: 0 }; // Initialize velocity
         this.speed = 3; // Normal speed
@@ -33,26 +45,40 @@ class Player {
     }
 
     draw() {
-        c.save();  // Save current canvas state
+        c.save();
+        c.translate(this.x, this.y);
+        c.rotate(Math.atan2(this.velocity.y, this.velocity.x)); // Rotate towards movement
 
-        // Increase glow intensity when boosting
-        if (this.isBoosted) {
-            this.glowIntensity = 30; // Higher intensity when boosting
-        } else {
-            this.glowIntensity = 15; // Normal intensity
-        }
-
-        // Set up the glow effect for the player
         c.shadowBlur = this.glowIntensity;
-        c.shadowColor = this.color; // Glow matches the player's color
+        c.shadowColor = this.color;
 
-        // Draw the player
+        // Diamond Shape (Outer Glowing Body)
         c.beginPath();
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        c.moveTo(0, -this.radius);  // Top point
+        c.lineTo(-this.radius, 0);  // Left point
+        c.lineTo(0, this.radius);   // Bottom point
+        c.lineTo(this.radius, 0);   // Right point
+        c.closePath();
         c.fillStyle = this.color;
         c.fill();
 
-        c.restore();  // Restore canvas state
+        // Inner Core (Black Center)
+        c.beginPath();
+        c.moveTo(0, -this.radius / 2);
+        c.lineTo(-this.radius / 2, 0);
+        c.lineTo(0, this.radius / 2);
+        c.lineTo(this.radius / 2, 0);
+        c.closePath();
+        c.fillStyle = "black";
+        c.fill();
+
+        // Pupil (Glowing Red Core)
+        c.beginPath();
+        c.arc(0, 0, this.radius / 4, 0, Math.PI * 2);
+        c.fillStyle = "white";
+        c.fill();
+
+        c.restore();
     }
 
     update() {
@@ -78,10 +104,30 @@ class Projectile {
         this.velocity = velocity;
     }
     draw() {
+        c.save();
+        c.translate(this.x, this.y);
+        c.shadowBlur = this.glowIntensity;
+        c.shadowColor = this.color;
+
+        // Outer glowing ring
         c.beginPath();
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        c.arc(0, 0, this.radius, 0, Math.PI * 2);
         c.fillStyle = this.color;
         c.fill();
+
+        // Inner core (darker shade)
+        c.beginPath();
+        c.arc(0, 0, this.radius / 2, 0, Math.PI * 2);
+        c.fillStyle = "black";
+        c.fill();
+
+        // Pupil (small glowing center)
+        c.beginPath();
+        c.arc(0, 0, this.radius / 4, 0, Math.PI * 2);
+        c.fillStyle = "white";
+        c.fill();
+
+        c.restore();
     }
     update() {
         this.draw();
@@ -101,19 +147,30 @@ class Enemy {
     }
 
     draw() {
-        c.save();  // Save current canvas state
-
-        // Set up the glow effect
-        c.shadowBlur = this.glowIntensity;
+        c.save();
+        c.translate(this.x, this.y);
+        c.shadowBlur = 30;
         c.shadowColor = this.color;
-
-        // Draw the enemy
+    
+        // Outer glowing ring
         c.beginPath();
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        c.arc(0, 0, this.radius, 0, Math.PI * 2);
         c.fillStyle = this.color;
         c.fill();
-
-        c.restore();  // Restore the canvas state (removes the glow for other objects)
+    
+        // Inner "eye" effect
+        c.beginPath();
+        c.arc(0, 0, this.radius / 2, 0, Math.PI * 2);
+        c.fillStyle = "black";
+        c.fill();
+    
+        // Pupil that "charges up"
+        c.beginPath();
+        c.arc(0, 0, this.radius / 4, 0, Math.PI * 2);
+        c.fillStyle = "red";
+        c.fill();
+    
+        c.restore();
     }
 
     update(player) {
