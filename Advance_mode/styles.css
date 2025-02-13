@@ -1,8 +1,8 @@
 /* Neon Glow for Modal Background */
 .neon-background {
     background-color: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.7), 
-                0 0 20px rgba(255, 255, 0, 0.8);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 
+                0 0 20px rgba(0, 255, 255, 0.8);
     border-radius: 15px;
 }
 
@@ -11,17 +11,17 @@
     font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #ffcc00;
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.7), 
-                 0 0 10px rgba(255, 165, 0, 1);
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.7), 
+                 0 0 10px rgba(0, 255, 255, 1);
     animation: neon-blink 1.5s infinite alternate;
 }
 
 /* Neon Instruction Text */
 .neon-instruction {
-    color: #ffcc00;
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.7), 
-                 0 0 10px rgba(255, 165, 0, 1);
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.7), 
+                 0 0 10px rgba(0, 255, 255, 1);
 }
 
 .button-container {
@@ -34,21 +34,21 @@
 
 /* Neon Buttons */
 .neon-btn {
-    border: 2px solid #ffcc00;
-    color: #ffcc00;
+    border: 2px solid #00ffff;
+    color: #00ffff;
     background: transparent;
     border-radius: 30px;
     padding: 12px 30px;
     font-size: 1.25rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.5);
 }
 
 .neon-btn:hover {
-    background-color: #ffcc00;
-    color: white;
+    background-color: #00ffff;
+    color: black;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 204, 0, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.6);
 }
 
 /* Modal Animation */
@@ -58,13 +58,13 @@
 }
 
 h1 {
-    color: #ffcc00;
-    text-shadow: 0 0 5px rgba(255, 165, 0, 0.7), 
-                 0 0 10px rgba(255, 165, 0, 1);
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.7), 
+                 0 0 10px rgba(0, 255, 255, 1);
 }
 
 #healthContainer {
-    border: 2px solid #ff0000;
+    border: 2px solid #00ffff;
     border-radius: 10px;
     width: 100%;  /* 100% width to match the container */
     height: 20px;
@@ -72,7 +72,7 @@ h1 {
 }
 
 #healthBar {
-    background-color: #ff3333;
+    background-color: #0088ff;
     height: 100%;
     width: 100%;
     transition: width 0.01s ease;
