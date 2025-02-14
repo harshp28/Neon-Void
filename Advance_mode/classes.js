@@ -236,7 +236,7 @@ class Star {
         this.position = position;
         this.velocity = velocity;
         this.radius = radius;
-        this.color = '#BAA0DE';
+        this.color = `hsl(${Math.random() * 360}, 50%, 50%)`;
     }
 
     draw() {
