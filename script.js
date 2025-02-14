@@ -21,7 +21,7 @@ for (let i = 0; i < numStars; i++) {
 function drawStars() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let star of stars) {
-        ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(Math.sin(star.twinkle))})`;
+        ctx.fillStyle = `hsl(${Math.random() * 360}, 50%, 50%)`;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fill();
