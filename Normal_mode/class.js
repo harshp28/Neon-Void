@@ -4,7 +4,7 @@ class Player {
     constructor(x, y, radius, color) {
         this.x = x;
         this.y = y;
-        this.radius = radius*1.5;
+        this.radius = radius*2;
         this.color = color;
         this.velocity = { x: 0, y: 0 }; // Initialize velocity
         this.speed = 3; // Normal speed
