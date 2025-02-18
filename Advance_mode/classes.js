@@ -47,32 +47,22 @@ class Player {
     draw() {
         c.save();
         c.translate(this.x, this.y);
-        c.rotate(Math.atan2(this.velocity.y, this.velocity.x)); // Rotate towards movement
-
         c.shadowBlur = this.glowIntensity;
         c.shadowColor = this.color;
 
-        // Diamond Shape (Outer Glowing Body)
+        // Outer glowing ring
         c.beginPath();
-        c.moveTo(0, -this.radius);  // Top point
-        c.lineTo(-this.radius, 0);  // Left point
-        c.lineTo(0, this.radius);   // Bottom point
-        c.lineTo(this.radius, 0);   // Right point
-        c.closePath();
+        c.arc(0, 0, this.radius, 0, Math.PI * 2);
         c.fillStyle = this.color;
         c.fill();
 
-        // Inner Core (Black Center)
+        // Inner core (darker shade)
         c.beginPath();
-        c.moveTo(0, -this.radius / 2);
-        c.lineTo(-this.radius / 2, 0);
-        c.lineTo(0, this.radius / 2);
-        c.lineTo(this.radius / 2, 0);
-        c.closePath();
+        c.arc(0, 0, this.radius / 2, 0, Math.PI * 2);
         c.fillStyle = "black";
         c.fill();
 
-        // Pupil (Glowing Red Core)
+        // Pupil (small glowing center)
         c.beginPath();
         c.arc(0, 0, this.radius / 4, 0, Math.PI * 2);
         c.fillStyle = "white";
