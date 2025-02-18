@@ -65,6 +65,7 @@ h1 {
 
 #healthContainer {
     border: 2px solid #00ffff;
+    background-color: rgba(0, 120, 120, 0.5);
     border-radius: 10px;
     width: 100%;  /* 100% width to match the container */
     height: 20px;
@@ -72,7 +73,8 @@ h1 {
 }
 
 #healthBar {
-    background-color: #0088ff;
+    background-color: #b90000;
+    border-radius: 10px;
     height: 100%;
     width: 100%;
     transition: width 0.01s ease;
