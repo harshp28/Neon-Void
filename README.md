@@ -1,6 +1,6 @@
 ### **Neon Void**  
 **Shoot, Survive, Conquer!**
-Link: https://harshp28.github.io/Neon-Void/
+Link: [https://harshp28.github.io/Nova-Clash/]
 
 ---
 
